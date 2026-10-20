@@ -1,0 +1,19 @@
+{
+  "thread1.txt": [
+    {"owner": "Bob", "keywords": ["budget", "report"], "status": "open"},
+    {"owner": "Carol", "keywords": ["q3", "numbers"], "status": "done"}
+  ],
+  "thread2.txt": [
+    {"owner": "Sneha", "keywords": ["login", "bug"], "status": "open"},
+    {"owner": "Priya", "keywords": ["release", "notes"], "status": "open"}
+  ],
+  "thread3.txt": [
+    {"owner": "Vikram", "keywords": ["demo", "room"], "status": "done"},
+    {"owner": "Vikram", "keywords": ["slides"], "status": "open"}
+  ],
+  "thread4.txt": [
+  {"owner": "Neha", "keywords": ["proposal"], "status": "open"},
+  {"owner": "Karan", "keywords": ["pricing"], "status": "open"},
+  {"owner": "Arjun", "keywords": ["legal"], "status": "open"}
+]
+}

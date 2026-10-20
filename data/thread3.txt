@@ -1,0 +1,14 @@
+From: Meera <meera@x.com>
+Date: 2026-10-08
+
+Vikram, please book a demo room for Thursday.
+======
+From: Vikram <vikram@x.com>
+Date: 2026-10-08
+
+Done, room 4B is booked. Also Meera, should I order lunch for the demo?
+======
+From: Meera <meera@x.com>
+Date: 2026-10-09
+
+No lunch needed, the client cancelled. Please share the demo slides with Tanvi by Wednesday.

@@ -1,0 +1,14 @@
+From: Alice <alice@x.com>
+Date: 2026-10-01
+
+Hi team, we need the budget report by Friday. Bob, can you handle it?
+======
+From: Bob <bob@x.com>
+Date: 2026-10-01
+
+Sure, I'll do it. Carol, please send me the Q3 numbers.
+======
+From: Carol <carol@x.com>
+Date: 2026-10-02
+
+Sent the Q3 numbers just now.
