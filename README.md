@@ -19,8 +19,9 @@ $env:GEMINI_API_KEY="your_key"
 streamlit run app.py
 ```
 
-## Evaluation (`eval.py`, 4 labelled threads)
-Precision 1.00 | Recall 1.00 | Status accuracy 1.00 | Faithfulness 1.00
+## Evaluation (eval.py, 20 labelled threads, 41 gold action items)
+Precision 1.00 | Recall 0.93 | F1 0.96 | Status accuracy 1.00 | Deadline accuracy 1.00 | Avg faithfulness 0.99
+One-to-one matching; per-thread results and missed items in results.md
 
 ## Limitations
 - Small test set; the metrics are indicative, not statistically strong

@@ -2,14 +2,20 @@ import re
 from dataclasses import replace
 from thread_parser import Message
 
-EMAIL = re.compile(r"[\w.+-]+@[\w-]+\.[\w.-]+")
+EMAIL = re.compile(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+")
 PHONE = re.compile(r"\+?\d[\d\s-]{8,}\d")
+LEFTOVER = re.compile(r"\[(PERSON|EMAIL|PHONE)_\d+\]")
+
 
 class Masker:
+    """Stable placeholders: one real entity always gets the same placeholder,
+    in every message and every chunk (one Masker per thread)."""
+
     def __init__(self):
         self.restore_map = {}   # placeholder -> original
         self._seen = {}         # (kind, original) -> placeholder
         self._count = {}
+        self.names = []         # person names/aliases, longest first
 
     def _placeholder(self, kind, original):
         key = (kind, original)
@@ -20,11 +26,28 @@ class Masker:
             self.restore_map[ph] = original
         return self._seen[key]
 
-    def mask_text(self, text: str, names: list[str]) -> str:
+    def register_people(self, people: dict):
+        """people = {"Priya Sharma": ["Priya", "Sharma"], ...}
+        A first/last name maps to the SAME placeholder as the full name,
+        unless that token is shared by two different people."""
+        owners = {}
+        for full, aliases in people.items():
+            for a in aliases:
+                owners.setdefault(a.lower(), set()).add(full)
+        for full, aliases in people.items():
+            ph = self._placeholder("PERSON", full)
+            self.names.append(full)
+            for a in aliases:
+                if len(owners[a.lower()]) == 1 and a != full:
+                    self._seen[("PERSON", a)] = ph
+                    self.names.append(a)
+        self.names.sort(key=len, reverse=True)
+
+    def mask_text(self, text: str, names=None) -> str:
         text = EMAIL.sub(lambda m: self._placeholder("EMAIL", m.group()), text)
         text = PHONE.sub(lambda m: self._placeholder("PHONE", m.group()), text)
-        for n in names:   # longest first
-            text = re.sub(rf"\b{re.escape(n)}\b", self._placeholder("PERSON", n), text)
+        for n in self.names:
+            text = re.sub(rf"\b{re.escape(n)}\b", self._seen[("PERSON", n)], text)
         return text
 
     def restore(self, text: str) -> str:
@@ -41,22 +64,30 @@ class Masker:
             return {k: self.restore_obj(v) for k, v in obj.items()}
         return obj
 
-def _names_from_senders(messages: list[Message]) -> list[str]:
-    names = set()
+
+def _people_from_senders(messages: list[Message]) -> dict:
+    people = {}
     for m in messages:
-        display = EMAIL.sub("", m.sender).replace("<", "").replace(">", "").strip()
-        if display:
-            names.add(display)
-            names.update(p for p in display.split() if len(p) > 2)
-    return sorted(names, key=len, reverse=True)
+        display = EMAIL.sub("", m.sender).replace("<", "").replace(">", "")
+        display = display.strip().strip('"').strip()
+        if not display or display.lower() == "unknown":
+            continue
+        parts = [p for p in re.split(r"[\s,]+", display) if len(p) > 2]
+        people[display] = [p for p in parts if p != display]
+    return people
+
 
 def mask_messages(messages: list[Message]):
     masker = Masker()
-    names = _names_from_senders(messages)
+    masker.register_people(_people_from_senders(messages))
     masked = [
         replace(m,
-                sender=masker.mask_text(m.sender, names),
-                body=masker.mask_text(m.body, names))
+                sender=masker.mask_text(m.sender),
+                body=masker.mask_text(m.body))
         for m in messages
     ]
     return masked, masker
+
+
+def has_leftover_placeholders(text: str) -> bool:
+    return bool(LEFTOVER.search(text))

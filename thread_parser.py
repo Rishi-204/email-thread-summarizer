@@ -9,15 +9,17 @@ class Message:
     body: str
 
 SIG_PATTERNS = [r"^--\s*$", r"^Sent from my", r"^Regards,?$", r"^Best,?$", r"^Thanks,?$"]
+QUOTE_START = re.compile(r"^-{2,}\s*(Original Message|Forwarded by).*", re.I)
 
 def clean_body(text: str) -> str:
     lines = []
     for line in text.splitlines():
-        if line.strip().startswith(">"):          # quoted reply
+        s = line.strip()
+        if s.startswith(">"):                      # quoted reply
             continue
-        if re.match(r"^On .+ wrote:$", line.strip()):
+        if re.match(r"^On .+ wrote:$", s) or QUOTE_START.match(s):
             break                                  # rest is quoted history
-        if any(re.match(p, line.strip(), re.I) for p in SIG_PATTERNS):
+        if any(re.match(p, s, re.I) for p in SIG_PATTERNS):
             break                                  # signature starts
         lines.append(line)
     return "\n".join(lines).strip()

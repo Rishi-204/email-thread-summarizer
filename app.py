@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 import cache
 from thread_parser import parse_thread, format_for_llm
-from chunker import summarize_long
+from chunker import summarize_long, thread_tokens, chunk_by_tokens
 from verifier import faithfulness_report, Verdict
 from privacy import mask_messages
 from extractor import ThreadResult
@@ -15,7 +15,10 @@ with st.sidebar:
     use_mask = st.checkbox("Mask PII before sending to API", True)
     use_verify = st.checkbox("Run faithfulness check", True)
     use_cache = st.checkbox("Demo cache (saves results to disk)", False)
-    max_chars = st.slider("Chunk size (chars)", 2000, 20000, 12000, 1000)
+    chunk_tokens = st.slider("Chunk size (tokens)", 500, 20000, 6000, 500)
+    single_limit = st.slider("Single-pass limit (tokens)", 0, 100000, 30000, 1000)
+    st.caption("Threads at or below the single-pass limit are summarised in one call; "
+               "longer ones are chunked, extracted per chunk, then reconciled.")
     st.caption("With the demo cache off, threads are processed in memory and never stored.")
 
 st.write("Paste a thread, separating messages with a line of `======`")
@@ -35,7 +38,13 @@ if st.button("Summarise", type="primary"):
         st.error("Paste or load a thread first.")
         st.stop()
 
-    ck = cache.make_key(raw, use_mask, max_chars)
+    parsed = parse_thread(raw)
+    total = thread_tokens(parsed)
+    n_chunks = len(chunk_by_tokens(parsed, chunk_tokens)) if total > single_limit else 1
+    st.caption(f"{len(parsed)} messages, ~{total} tokens → "
+               + ("single pass" if n_chunks == 1 else f"{n_chunks} chunks + reconciliation"))
+
+    ck = cache.make_key(raw, use_mask, f"{chunk_tokens}-{single_limit}")
     cached = cache.load(ck) if use_cache else None
 
     if cached:
@@ -45,7 +54,7 @@ if st.button("Summarise", type="primary"):
             report["unsupported"] = [Verdict(**v) for v in report["unsupported"]]
         st.success("⚡ Loaded from demo cache (no API call)")
     else:
-        messages = parse_thread(raw)
+        messages = parsed
         masker = None
         if use_mask:
             messages, masker = mask_messages(messages)
@@ -54,7 +63,7 @@ if st.button("Summarise", type="primary"):
             st.code(format_for_llm(messages)[:3000])
 
         with st.spinner("Summarising..."):
-            result = summarize_long(messages, max_chars)
+            result = summarize_long(messages, chunk_tokens, single_limit)
 
         report = None
         if use_verify:

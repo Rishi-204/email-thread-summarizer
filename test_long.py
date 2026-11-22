@@ -1,5 +1,5 @@
 from thread_parser import Message, format_for_llm
-from chunker import summarize_long
+from chunker import summarize_long, thread_tokens
 from verifier import faithfulness_report
 
 fillers = ["Sounds good, thanks for the update.", "Noted, will keep an eye on it.",
@@ -12,7 +12,9 @@ msgs[2].body = "Bob, please prepare the vendor contract draft by 15 Oct."
 msgs[10].body = "Carol, please book the venue for the offsite."
 msgs[50].body = "The vendor contract draft is done and sent to legal. - Bob"
 
-result = summarize_long(msgs, max_chars=1500)   # small value forces ~5 chunks
+print(f"~{thread_tokens(msgs)} tokens")
+# single_pass_limit=0 forces chunking; 400-token chunks give ~5 chunks
+result = summarize_long(msgs, chunk_tokens=400, single_pass_limit=0)
 print(result.model_dump_json(indent=2))
 
 text = format_for_llm(msgs)
