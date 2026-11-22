@@ -1,0 +1,24 @@
+From: Varun <varun@x.com>
+Date: 2026-11-13
+
+Should we migrate to a new CRM?
+======
+From: Neelam <neelam@x.com>
+Date: 2026-11-13
+
+Not this quarter, the budget is tight.
+======
+From: Varun <varun@x.com>
+Date: 2026-11-13
+
+Understood, let's drop the idea.
+======
+From: Neelam <neelam@x.com>
+Date: 2026-11-14
+
+Please share the Q4 roadmap with me by Friday.
+======
+From: Varun <varun@x.com>
+Date: 2026-11-14
+
+Will send it by Friday.

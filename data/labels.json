@@ -1,19 +1,350 @@
 {
   "thread1.txt": [
-    {"owner": "Bob", "keywords": ["budget", "report"], "status": "open"},
-    {"owner": "Carol", "keywords": ["q3", "numbers"], "status": "done"}
+    {
+      "owner": "Bob",
+      "keywords": [
+        "budget",
+        "report"
+      ],
+      "status": "open",
+      "deadline": "friday"
+    },
+    {
+      "owner": "Carol",
+      "keywords": [
+        "q3",
+        "numbers"
+      ],
+      "status": "done"
+    }
   ],
   "thread2.txt": [
-    {"owner": "Sneha", "keywords": ["login", "bug"], "status": "open"},
-    {"owner": "Priya", "keywords": ["release", "notes"], "status": "open"}
+    {
+      "owner": "Sneha",
+      "keywords": [
+        "login",
+        "bug"
+      ],
+      "status": "open"
+    },
+    {
+      "owner": "Priya",
+      "keywords": [
+        "release",
+        "notes"
+      ],
+      "status": "open",
+      "deadline": "monday"
+    }
   ],
   "thread3.txt": [
-    {"owner": "Vikram", "keywords": ["demo", "room"], "status": "done"},
-    {"owner": "Vikram", "keywords": ["slides"], "status": "open"}
+    {
+      "owner": "Vikram",
+      "keywords": [
+        "demo",
+        "room"
+      ],
+      "status": "done"
+    },
+    {
+      "owner": "Vikram",
+      "keywords": [
+        "slides"
+      ],
+      "status": "open",
+      "deadline": "wednesday"
+    }
   ],
   "thread4.txt": [
-  {"owner": "Neha", "keywords": ["proposal"], "status": "open"},
-  {"owner": "Karan", "keywords": ["pricing"], "status": "open"},
-  {"owner": "Arjun", "keywords": ["legal"], "status": "open"}
-]
+    {
+      "owner": "Neha",
+      "keywords": [
+        "proposal"
+      ],
+      "status": "open",
+      "deadline": "thursday"
+    },
+    {
+      "owner": "Karan",
+      "keywords": [
+        "pricing"
+      ],
+      "status": "open"
+    },
+    {
+      "owner": "Arjun",
+      "keywords": [
+        "legal"
+      ],
+      "status": "open"
+    }
+  ],
+  "thread5.txt": [
+    {
+      "owner": "Rohan",
+      "keywords": [
+        "copy"
+      ],
+      "status": "done",
+      "deadline": "30 oct"
+    },
+    {
+      "owner": "Karthik",
+      "keywords": [
+        "analytics"
+      ],
+      "status": "open",
+      "deadline": "27 oct"
+    },
+    {
+      "owner": "Meera",
+      "keywords": [
+        "webinar"
+      ],
+      "status": "open"
+    },
+    {
+      "owner": "Karthik",
+      "keywords": [
+        "report"
+      ],
+      "status": "open",
+      "deadline": "3 nov"
+    }
+  ],
+  "thread6.txt": [
+    {
+      "owner": "Sameer",
+      "keywords": [
+        "interview"
+      ],
+      "status": "done",
+      "deadline": "monday"
+    },
+    {
+      "owner": "Divya",
+      "keywords": [
+        "confirm"
+      ],
+      "status": "open"
+    },
+    {
+      "owner": "Tara",
+      "keywords": [
+        "feedback"
+      ],
+      "status": "done"
+    }
+  ],
+  "thread7.txt": [
+    {
+      "owner": "Pooja",
+      "keywords": [
+        "restart"
+      ],
+      "status": "done"
+    },
+    {
+      "owner": "Imran",
+      "keywords": [
+        "postmortem"
+      ],
+      "status": "open",
+      "deadline": "friday"
+    },
+    {
+      "owner": "Pooja",
+      "keywords": [
+        "alert"
+      ],
+      "status": "open"
+    }
+  ],
+  "thread8.txt": [
+    {
+      "owner": "Hari",
+      "keywords": [
+        "invoice"
+      ],
+      "status": "done",
+      "deadline": "tuesday"
+    },
+    {
+      "owner": "Leena",
+      "keywords": [
+        "credit"
+      ],
+      "status": "done"
+    }
+  ],
+  "thread9.txt": [
+    {
+      "owner": "Yash",
+      "keywords": [
+        "cancel"
+      ],
+      "status": "open"
+    }
+  ],
+  "thread10.txt": [
+    {
+      "owner": "Bhavna",
+      "keywords": [
+        "review"
+      ],
+      "status": "done",
+      "deadline": "end of day"
+    },
+    {
+      "owner": "Arvind",
+      "keywords": [
+        "null"
+      ],
+      "status": "open"
+    },
+    {
+      "owner": "Arvind",
+      "keywords": [
+        "test"
+      ],
+      "status": "open"
+    }
+  ],
+  "thread11.txt": [
+    {
+      "owner": "Dev",
+      "keywords": [
+        "quote"
+      ],
+      "status": "open",
+      "deadline": "12 nov"
+    },
+    {
+      "owner": "Ravi",
+      "keywords": [
+        "dell"
+      ],
+      "status": "open"
+    }
+  ],
+  "thread12.txt": [],
+  "thread13.txt": [
+    {
+      "owner": "Kavya",
+      "keywords": [
+        "api"
+      ],
+      "status": "open"
+    },
+    {
+      "owner": "Unassigned",
+      "keywords": [
+        "setup"
+      ],
+      "status": "open"
+    }
+  ],
+  "thread14.txt": [
+    {
+      "owner": "Ishaan",
+      "keywords": [
+        "expense"
+      ],
+      "status": "done",
+      "deadline": "next week"
+    }
+  ],
+  "thread15.txt": [
+    {
+      "owner": "Tushar",
+      "keywords": [
+        "availability"
+      ],
+      "status": "done"
+    },
+    {
+      "owner": "Anita",
+      "keywords": [
+        "availability"
+      ],
+      "status": "open"
+    }
+  ],
+  "thread16.txt": [
+    {
+      "owner": "Omkar",
+      "keywords": [
+        "refund"
+      ],
+      "status": "done",
+      "deadline": "24 hours"
+    },
+    {
+      "owner": "Lata",
+      "keywords": [
+        "apolog"
+      ],
+      "status": "open"
+    }
+  ],
+  "thread17.txt": [
+    {
+      "owner": "Varun",
+      "keywords": [
+        "roadmap"
+      ],
+      "status": "open",
+      "deadline": "friday"
+    }
+  ],
+  "thread18.txt": [
+    {
+      "owner": "Chirag",
+      "keywords": [
+        "slide"
+      ],
+      "status": "open"
+    },
+    {
+      "owner": "Bela",
+      "keywords": [
+        "deck"
+      ],
+      "status": "done"
+    }
+  ],
+  "thread19.txt": [
+    {
+      "owner": "Pallavi",
+      "keywords": [
+        "vendor"
+      ],
+      "status": "done",
+      "deadline": "wednesday"
+    },
+    {
+      "owner": "Rohit",
+      "keywords": [
+        "kickoff"
+      ],
+      "status": "done"
+    },
+    {
+      "owner": "Naveen",
+      "keywords": [
+        "nda"
+      ],
+      "status": "open"
+    }
+  ],
+  "thread20.txt": [
+    {
+      "owner": "Kabir",
+      "keywords": [
+        "report"
+      ],
+      "status": "open",
+      "deadline": "friday"
+    }
+  ]
 }

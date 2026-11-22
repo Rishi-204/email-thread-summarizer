@@ -1,0 +1,19 @@
+From: Sunita <sunita@x.com>
+Date: 2026-11-09
+
+Dev, please collect three laptop quotes by 12 Nov.
+======
+From: Dev <dev@x.com>
+Date: 2026-11-09
+
+Ravi has a contact at Dell. Ravi, can you get the Dell quote?
+======
+From: Ravi <ravi@x.com>
+Date: 2026-11-09
+
+Sure, I'll ask Dell today.
+======
+From: Dev <dev@x.com>
+Date: 2026-11-09
+
+I'll get the HP and Lenovo quotes myself.

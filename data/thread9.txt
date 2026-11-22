@@ -1,0 +1,19 @@
+From: Gauri <gauri@x.com>
+Date: 2026-11-05
+
+Yash, please book a caterer for the 12 Dec offsite.
+======
+From: Yash <yash@x.com>
+Date: 2026-11-05
+
+Booked Spice Route as the caterer.
+======
+From: Gauri <gauri@x.com>
+Date: 2026-11-06
+
+Bad news, the offsite is postponed to January. Yash, please cancel the caterer.
+======
+From: Yash <yash@x.com>
+Date: 2026-11-06
+
+Will cancel it tomorrow morning.

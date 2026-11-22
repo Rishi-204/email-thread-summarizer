@@ -1,0 +1,14 @@
+From: Mohit <mohit@x.com>
+Date: 2026-11-11
+
+I think we should update the documentation before the launch.
+======
+From: Kavya <kavya@x.com>
+Date: 2026-11-11
+
+Agreed. I can take the API reference section.
+======
+From: Mohit <mohit@x.com>
+Date: 2026-11-12
+
+Good. Someone should also handle the setup guide, but no rush.

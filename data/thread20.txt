@@ -1,0 +1,24 @@
+From: Jiya <jiya@x.com>
+Date: 2026-11-18
+
+Kabir, please send the audit report by Monday.
+======
+From: Kabir <kabir@x.com>
+Date: 2026-11-18
+
+I need more time. Can I send it by Wednesday?
+======
+From: Jiya <jiya@x.com>
+Date: 2026-11-18
+
+Wednesday is fine.
+======
+From: Kabir <kabir@x.com>
+Date: 2026-11-19
+
+Sorry, the auditors are delayed. I'll send it Friday.
+======
+From: Jiya <jiya@x.com>
+Date: 2026-11-19
+
+Okay, Friday it is.

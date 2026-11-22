@@ -1,0 +1,19 @@
+From: Sara <sara@x.com>
+Date: 2026-11-02
+
+Ishaan, please submit your October expense report by the end of next week.
+======
+From: Ishaan <ishaan@x.com>
+Date: 2026-11-02
+
+Will do.
+======
+From: Sara <sara@x.com>
+Date: 2026-11-09
+
+Reminder: finance closes the books on Friday.
+======
+From: Ishaan <ishaan@x.com>
+Date: 2026-11-10
+
+Submitted the expense report this morning.

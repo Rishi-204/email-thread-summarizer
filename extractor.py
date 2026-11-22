@@ -39,8 +39,13 @@ SYSTEM = """You summarise email threads and extract action items.
 Rules:
 - Use ONLY information in the thread. Never invent owners, deadlines or tasks.
 - Only extract tasks that someone is asked to do, or commits to doing.
-- Do NOT extract questions (e.g. "should I order lunch?") or suggestions that
-  were rejected or cancelled. If a task is cancelled, leave it out.
+- A question that asks someone to DO something ("can you approve the credit note?")
+  is a task. A question about WHETHER to do something ("should we order lunch?")
+  is not a task.
+- If one sentence contains several separate commitments ("I'll fix X and add Y"),
+  list each as its own action item.
+- A task nobody has claimed ("someone should update the docs") is extracted with
+  owner "Unassigned".
 - If the owner is not clear, use "Unassigned". If no deadline, use "None".
 - If a task was reassigned, the final owner is the owner.
 - If the deadline changed, use the latest deadline.

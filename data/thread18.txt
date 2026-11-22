@@ -1,0 +1,24 @@
+From: Ajay <ajay@x.com>
+Date: 2026-11-16
+
+Bela, please prepare the client slides for Thursday's meeting.
+======
+From: Bela <bela@x.com>
+Date: 2026-11-16
+
+I'm on leave Wednesday. Can Chirag do it?
+======
+From: Chirag <chirag@x.com>
+Date: 2026-11-16
+
+Fine, I'll prepare the client slides.
+======
+From: Ajay <ajay@x.com>
+Date: 2026-11-16
+
+Thanks Chirag. Bela, please send him last quarter's deck.
+======
+From: Bela <bela@x.com>
+Date: 2026-11-17
+
+Sent the old deck to Chirag.

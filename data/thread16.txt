@@ -1,0 +1,19 @@
+From: Farah <farah@x.com>
+Date: 2026-11-12
+
+Omkar, please issue a refund for order 8891 within 24 hours.
+======
+From: Omkar <omkar@x.com>
+Date: 2026-11-12
+
+Refund issued, the customer will see it in 3 days.
+======
+From: Farah <farah@x.com>
+Date: 2026-11-12
+
+Thanks. Lata, please email the customer an apology.
+======
+From: Lata <lata@x.com>
+Date: 2026-11-12
+
+Will do it today.

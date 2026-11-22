@@ -1,0 +1,19 @@
+From: Nikhil <nikhil@x.com>
+Date: 2026-11-03
+
+The production database has been down since 9 am. Pooja, please restart it right away.
+======
+From: Pooja <pooja@x.com>
+Date: 2026-11-03
+
+Restarted, the database is back up and responding.
+======
+From: Nikhil <nikhil@x.com>
+Date: 2026-11-03
+
+Great. Imran, please write the postmortem by Friday. Pooja, please also check the disk alerts.
+======
+From: Pooja <pooja@x.com>
+Date: 2026-11-03
+
+I will check the disk alerts this afternoon.

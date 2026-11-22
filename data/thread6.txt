@@ -1,0 +1,19 @@
+From: Divya <divya@x.com>
+Date: 2026-11-02
+
+Sameer, please schedule interviews for the three shortlisted candidates by Monday.
+======
+From: Sameer <sameer@x.com>
+Date: 2026-11-02
+
+Scheduled all three for Monday afternoon. Divya, who will send them the confirmation emails?
+======
+From: Divya <divya@x.com>
+Date: 2026-11-03
+
+I'll send the confirmations today. Tara, please prepare the interview feedback form.
+======
+From: Tara <tara@x.com>
+Date: 2026-11-03
+
+Feedback form is ready, I've shared it with the panel.

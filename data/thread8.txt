@@ -1,0 +1,19 @@
+From: Leena <leena@x.com>
+Date: 2026-11-04
+
+The client says invoice 4412 has the wrong amount. Hari, please send a corrected invoice by Tuesday.
+======
+From: Hari <hari@x.com>
+Date: 2026-11-04
+
+On it. Leena, can you approve a credit note for the difference?
+======
+From: Leena <leena@x.com>
+Date: 2026-11-04
+
+Approved the credit note just now.
+======
+From: Hari <hari@x.com>
+Date: 2026-11-05
+
+The corrected invoice has been sent to the client.

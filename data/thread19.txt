@@ -1,0 +1,39 @@
+From: Naveen <naveen@x.com>
+Date: 2026-11-17
+
+Kickoff for Project Atlas is next week. Budget approvals are still pending.
+======
+From: Pallavi <pallavi@x.com>
+Date: 2026-11-17
+
+Good morning! I'll send the vendor list by Wednesday.
+======
+From: Rohit <rohit@x.com>
+Date: 2026-11-17
+
+The weather is awful today, is anyone coming to the office?
+======
+From: Naveen <naveen@x.com>
+Date: 2026-11-17
+
+Rohit, please schedule the kickoff call once the budget is approved.
+======
+From: Rohit <rohit@x.com>
+Date: 2026-11-17
+
+Will do.
+======
+From: Pallavi <pallavi@x.com>
+Date: 2026-11-18
+
+The vendor list has been sent to everyone.
+======
+From: Naveen <naveen@x.com>
+Date: 2026-11-18
+
+Thanks Pallavi. I'll sign the NDA tonight.
+======
+From: Rohit <rohit@x.com>
+Date: 2026-11-19
+
+The kickoff call is scheduled for Monday at 10 am.
