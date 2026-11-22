@@ -1,12 +1,13 @@
 import re
-import time
 from pydantic import BaseModel
 from google.genai import types
-from extractor import client, MODEL, ThreadResult, generate
+from extractor import ThreadResult, generate
 from thread_parser import Message
+
 
 def norm(s: str) -> str:
     return re.sub(r"\s+", " ", s.lower()).strip()
+
 
 # ---------- Check 1: exact quote matching (no LLM) ----------
 def check_quotes(result: ThreadResult, messages: list[Message]) -> list[bool]:
@@ -16,14 +17,17 @@ def check_quotes(result: ThreadResult, messages: list[Message]) -> list[bool]:
         for a in result.action_items
     ]
 
+
 # ---------- Check 2: LLM verifier ----------
 class Verdict(BaseModel):
     claim: str
     supported: bool
     reason: str
 
+
 class VerdictList(BaseModel):
     verdicts: list[Verdict]
+
 
 VERIFY_SYSTEM = """You are a strict fact-checker. For each claim, decide if the
 email thread supports it. Mark supported=false only if the claim contradicts the
@@ -31,8 +35,10 @@ thread or adds names, dates, tasks or outcomes that are not in it. Status
 "done" is supported if a later message says the work was completed or sent.
 Keep reason to one line."""
 
+
 def split_sentences(text: str) -> list[str]:
     return [s.strip() for s in re.split(r"(?<=[.!?])\s+", text) if s.strip()]
+
 
 def build_claims(result: ThreadResult) -> list[str]:
     claims = split_sentences(result.summary)
@@ -59,10 +65,6 @@ def verify_claims(thread_text: str, claims: list[str]) -> list[Verdict]:
     )
     return resp.parsed.verdicts
 
-def filter_verified(result, messages):
-    ok = check_quotes(result, messages)
-    result.action_items = [a for a, good in zip(result.action_items, ok) if good]
-    return result
 
 # ---------- Combine ----------
 def faithfulness_report(result: ThreadResult, messages: list[Message], thread_text: str) -> dict:
@@ -76,6 +78,7 @@ def faithfulness_report(result: ThreadResult, messages: list[Message], thread_te
         "unsupported": [v for v in verdicts if not v.supported],
         "bad_quotes": [a.task for a, ok in zip(result.action_items, quote_ok) if not ok],
     }
+
 
 if __name__ == "__main__":
     from thread_parser import parse_thread, format_for_llm

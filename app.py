@@ -1,9 +1,10 @@
 import pandas as pd
 import streamlit as st
+import audit
 import cache
 from thread_parser import parse_thread, format_for_llm
 from chunker import summarize_long, thread_tokens, chunk_by_tokens
-from verifier import faithfulness_report, Verdict
+from verifier import faithfulness_report, Verdict, check_quotes
 from privacy import mask_messages
 from extractor import ThreadResult
 
@@ -69,6 +70,11 @@ if st.button("Summarise", type="primary"):
         if use_verify:
             with st.spinner("Checking faithfulness..."):
                 report = faithfulness_report(result, messages, format_for_llm(messages))
+
+        # audit log is written from the MASKED result (placeholders, not real names)
+        audit.log_run(raw, result, report, check_quotes(result, messages),
+                      masked=use_mask,
+                      meta={"messages": len(parsed), "tokens": total, "chunks": n_chunks})
 
         if masker:
             result = ThreadResult(**masker.restore_obj(result.model_dump()))

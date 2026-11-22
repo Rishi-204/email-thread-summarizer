@@ -97,14 +97,20 @@ def summarize_long(messages: list[Message],
     if verbose:
         print(f"~{total} tokens > {single_pass_limit}: {len(chunks)} chunks of ~{chunk_tokens}")
 
-    partials = []
+    partials, all_items = [], []
     for i, c in enumerate(chunks):
         if verbose:
             print(f"Chunk {i + 1}/{len(chunks)} (msgs {c[0].id}-{c[-1].id})")
-        partials.append(extract(format_for_llm(c)))
-        time.sleep(2)                          # be gentle with the free tier
+        # rolling state: later chunks see the still-open items found so far, so a
+        # message like "the contract is done" can update a task from an earlier chunk
+        known_open = [it for it in dedupe_items(all_items)
+                      if it.status.strip().lower() not in DONE]
+        part = extract(format_for_llm(c), known_items=known_open or None)
+        partials.append(part)
+        all_items.extend(part.action_items)        # chunk order
+        if i < len(chunks) - 1:
+            time.sleep(2)                          # be gentle with the free tier
 
-    all_items = [it for p in partials for it in p.action_items]   # chunk order
     candidates = dedupe_items(all_items)
 
     payload = "CHUNKS (oldest first):\n" + "\n".join(
